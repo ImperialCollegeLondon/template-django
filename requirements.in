@@ -1,1 +1,3 @@
 Django
+django_saml2_auth
+django-sslserver

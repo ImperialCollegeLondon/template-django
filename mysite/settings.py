@@ -123,3 +123,15 @@ STATIC_URL = '/static/'
 # App-specific overrides
 
 # flake8: noqa
+INSTALLED_APPS += ('django_saml2_auth',)
+SAML2_AUTH = {
+    'METADATA_AUTO_CONF_URL': 'https://login.microsoftonline.com/2b897507-ee8c-4575-830b-4f8267c3d307/federationmetadata/2007-06/federationmetadata.xml?appid=5924288d-9f33-4caa-a7aa-5c9503585296',
+    'ATTRIBUTES_MAP': {
+        'email': 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress',
+        'username': 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name',
+        'first_name': 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname',
+        'last_name': 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname',
+    },
+    'ENTITY_ID': 'https://github.com/ImperialCollegeLondon/template-django',
+}
+INSTALLED_APPS += ('sslserver',)

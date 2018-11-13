@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'huey.contrib.djhuey',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,3 +124,7 @@ STATIC_URL = '/static/'
 # App-specific overrides
 
 # flake8: noqa
+HUEY = {
+    'backend_class': 'huey.contrib.sqlitedb.SqliteHuey',
+    'always_eager': False,
+}

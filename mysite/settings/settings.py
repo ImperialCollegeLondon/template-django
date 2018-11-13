@@ -123,3 +123,4 @@ STATIC_URL = '/static/'
 # App-specific overrides
 
 # flake8: noqa
+AUTHENTICATION_BACKENDS = ['customauth.LdapBackend']

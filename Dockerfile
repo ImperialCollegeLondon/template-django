@@ -7,4 +7,7 @@ WORKDIR /usr/src/app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY --chown=nobody . /usr/src/app
+WORKDIR /usr/src/app
+USER nobody
+RUN python manage.py collectstatic --no-input

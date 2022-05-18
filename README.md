@@ -24,7 +24,7 @@ After downloading this repo and changing the top-level folder name, these are th
     python -m pip freeze > requirements.txt
     ```
 
- 1. Install the git hooks (you may have to install the development requirements if they are not already installed globally with `pip install requirements-dev.txt`):
+ 1. Install the git hooks. This requires that the repo is tracked by git (use `git init` if not). Also, you may have to install the development requirements if they are not already installed globally with `pip install requirements-dev.txt`:
 
     ```
     pre-commit install
@@ -36,7 +36,7 @@ After downloading this repo and changing the top-level folder name, these are th
     django-admin startproject <mysite> .
     ```
 
-    Make sure you replace `<mysite>` with the name you want for your project. Then make sure you change the lines referencing `mysite` in `.dockerignore` and `.flake8` to your chosen project name.
+    Make sure you replace `<mysite>` with the name you want for your project. Then make sure you change the lines referencing `mysite` in `.dockerignore`, `.flake8` and `.pre-commit-config.yml` to your chosen project name.
 
     You should now have a directory structure that looks like this (note new file `manage.py` and new directory `mysite/`):
 
@@ -86,7 +86,7 @@ After downloading this repo and changing the top-level folder name, these are th
     └── views.py
     ```
 
- 1. Ensure this repo is tracked by git with `git init` and to update this README to match your project.
+ 1. Update this README to match your project!
 
 If you want to specify a python version for your Docker container, change the first line of the Dockerfile to your preferred image.
 

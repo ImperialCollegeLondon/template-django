@@ -92,4 +92,4 @@ If you want to specify a python version for your Docker container, change the fi
 
 The project is now ready to build and run in the docker container using `docker-compose build` and `docker-compose run -d`. The default setup page will be available at <http://localhost:8000>
 
-This repo also includes some github actions to update the pre-commit hooks and also run tests and qa and publish the docker image to github packages. Since this template does not contain any Django files, the relevant parts for running tests and publishing in `.github/workflows/ci.yml` have been commented out. Uncomment the parts you want, and if you are using the `publish` action, change the instances of `template-django/mysite` to `<your-repo-name>/<your-django-project-name>`.
+This repo also includes some github actions to update the pre-commit hooks and also run tests and qa and publish the docker image to github packages. Since this template does not contain any Django files, the relevant parts for running tests and publishing the image in `.github/workflows/ci.yml` have been commented out. Uncomment the parts you want.

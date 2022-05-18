@@ -70,7 +70,7 @@ After downloading this repo and changing the top-level folder name, these are th
     python manage.py startapp main
     ```
 
-    `main` is our recommended name for the app, but you can call it whatever you want. If you change the name, make sure you change the lines referencing `main/migrations` in `pyproject.toml` and `.flake8` to `<your-app-name>/migrations`.
+    `main` is our recommended name for the app, but you can call it whatever you want. If you change the name, make sure you change the lines referencing `main` in `pyproject.toml`, `.dockerignore`, `.flake8` and `.pre-commit-config.yml` to `<your-app-name>`.
 
     You should now have a new sub-directory called `main` with this structure:
 

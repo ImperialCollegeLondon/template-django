@@ -4,33 +4,33 @@ This is a minimal template for a Django project using docker.
 
 After downloading this repo and changing the top-level folder name, these are the steps to setup your django project:
 
- 1. Create and activate a Virtual Environment inside this folder:
+1. Create and activate a Virtual Environment inside this folder:
 
     ```bash
     python -m venv .venv
     source .venv/bin/activate
     ```
 
- 1. Install requirements:
+1. Install requirements:
 
     ```bash
     python -m pip install -U pip
     python -m pip install -r requirements.in
     ```
 
- 1. Create a `requirements.txt` to use the specific versions you just installed. This file is required for Docker image:
+1. Create a `requirements.txt` to use the specific versions you just installed. This file is required for Docker image:
 
     ```bash
     python -m pip freeze > requirements.txt
     ```
 
- 1. Install the git hooks. This requires that the repo is tracked by git (use `git init` if not). Also, you may have to install the development requirements if they are not already installed globally with `pip install requirements-dev.txt`:
+1. Install the git hooks. This requires that the repo is tracked by git (use `git init` if not). Also, you may have to install the development requirements if they are not already installed globally with `pip install requirements-dev.txt`:
 
     ```
     pre-commit install
     ```
 
- 1. Create Django project using [the `django-admin` tool](https://docs.djangoproject.com/en/4.0/ref/django-admin/#startproject):
+1. Create Django project using [the `django-admin` tool](https://docs.djangoproject.com/en/4.0/ref/django-admin/#startproject):
 
     ```bash
     django-admin startproject <mysite> .
@@ -64,7 +64,7 @@ After downloading this repo and changing the top-level folder name, these are th
     └── requirements.txt
     ```
 
- 1. Create you main django app:
+1. Create you main django app:
 
     ```bash
     python manage.py startapp main
@@ -86,7 +86,7 @@ After downloading this repo and changing the top-level folder name, these are th
     └── views.py
     ```
 
- 1. Update this README to match your project!
+1. Update this README to match your project!
 
 If you want to specify a python version for your Docker container, change the first line of the Dockerfile to your preferred image.
 
@@ -95,3 +95,10 @@ The project is now ready to build and run in the docker container using `docker-
 <!-- markdown-link-check-enable -->
 
 This repo also includes some github actions to update the pre-commit hooks and also run tests and qa and publish the docker image to github packages. Since this template does not contain any Django files, the relevant parts for running tests and publishing the image in `.github/workflows/ci.yml` have been commented out. Uncomment the parts you want.
+
+## In production
+
+For production environments, some small changes are required, in addition to serving from behind a proxy, setting up ssl certificates etc.
+
+- The static content needs to be served correctly. For this, uncomment the last line in the Dockerfile (the one with `collectstatic`) and add `STATIC_ROOT = BASE_DIR / "staticfiles"` to `mysite/settings.py`
+- Some production-specific settings need to be added. This can be done with a separate `production.py` file, which requires setting the `DJANGO_SETTINGS_MODULE` environment variable. Or, it can be done by using a config-debug tool like [python-decouple](https://pypi.org/project/python-decouple/#toc-entry-1)
